@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="totoForm">
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="name">
+    <mat-error>Le nom est requis</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nombre Magique</mat-label>
+    <input matInput formControlName="magic">
+    <mat-error *ngIf="totoForm.get('magic')?.hasError('require')">Le nombre magique est requis</mat-error>
+    <mat-error *ngIf="totoForm.get('magic')?.hasError('min')">Le nombre magique est trop petit</mat-error>
+    <mat-error *ngIf="totoForm.get('magic')?.hasError('pattern')">Le nombre magique n'est pas un nombre</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

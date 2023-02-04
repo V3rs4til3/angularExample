@@ -1,0 +1,14 @@
+$margin: 15px;
+
+form {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+mat-form-field{
+  display: block;
+}
+
+mat-error + mat-error {
+  display: none;
+}
